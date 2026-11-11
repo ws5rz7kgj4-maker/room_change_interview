@@ -1,0 +1,19 @@
+{
+  "purpose": "Byte integrity of copied evidence; not independent experimental replication.",
+  "files": {
+    "evidence/source_locations.json": "705d80980f25dc077ff8408712343169755770d3e0bb777dd8122e7ffe85caa8",
+    "evidence/v5_REVIEWED_FINDINGS.md": "18cdbe137222a148a88c969186c6427a201dc671a6af1be59577381e5768679b",
+    "evidence/v5_delivery_manifest.json": "c7c161c8d099c1dee743bf56e2cd10b2d0de18e178266983d460799c7447ba03",
+    "evidence/v5_paired_layout_bootstrap.json": "665bdc09410436c9e037b347c77a71c6703043ceaa3f7a14fc92b9c8c479e21d",
+    "evidence/v5_protocol.json": "222409269b79d149567809598cbbd9e599226eee905ddc8590ed2a302bc2db9d",
+    "evidence/v5_summary.json": "90e6ffe5adc2fc809a6fb3413a7d0c0ceee9fc3590bed1b9b6c86d627a1a0a98",
+    "evidence/v5_verification.json": "9ab4788040debbb32a5b38157b563a7eadf70e36f8562a186e8e9eb1909670c2",
+    "evidence/v7_REVIEWED_FINDINGS.md": "b7d51f158d990fa83eff03e4d741722bf64668fa0142e6fea2caaf2e754e3fa6",
+    "evidence/v7_delivery_manifest.json": "67b48f3c9b23289836922eafa8197797468fbb8c805a6aa6bc02d3b6c778c63b",
+    "evidence/v7_key_results.json": "1459f74d22b10a870757ea16dbb4666f886723f4aceea004ee2cdbf27febd4e7",
+    "evidence/v7_protocol.json": "d3f0653d3cbbf8733f925a8179c067b71539430ad1d0acd0be34424d3403c2e9",
+    "evidence/v7_retraining_verification.json": "1c49eb14c1a744de1c4699d42fc139996c1ec9a9daae5b9cea360d8503dc68ce",
+    "evidence/v7_verification.json": "18ec42f00a5aecfb86484e4a6446ac0e370b09c50b3d00e3d7e182196b8213ea",
+    "evidence/v8_FINDINGS.md": "025f083a8c464497ed76a8766b76cef798c8659505c9f267a4039d439d39cfb8"
+  }
+}

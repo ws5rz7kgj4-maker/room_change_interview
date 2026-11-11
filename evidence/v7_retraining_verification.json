@@ -1,0 +1,14 @@
+{
+  "histories_identical": true,
+  "policies_identical": true,
+  "new_plain_42_weights_identical": true,
+  "new_hard_42_weights_identical": true,
+  "new_plain_43_weights_identical": true,
+  "new_hard_43_weights_identical": true,
+  "new_plain_44_weights_identical": true,
+  "new_hard_44_weights_identical": true,
+  "reproduction_seconds": 132.93724648002535,
+  "unique_experimental_fits": 6,
+  "reproducibility_reruns": 6,
+  "test_accessed_by_retraining": false
+}

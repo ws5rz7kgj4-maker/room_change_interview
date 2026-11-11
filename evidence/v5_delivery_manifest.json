@@ -1,0 +1,14 @@
+{
+  "source_revision": "5f0f9a7eb5709e8d55913f064bfee8600be02023",
+  "source_archive_sha256": "7b495a0fddb4b94fc4d0299d860a7e1fc2a9c4b52d5c317d3e2c05ff338ba557",
+  "all_original_run_files_unchanged": true,
+  "all_twelve_weight_hashes_verified": true,
+  "fixed_thresholds_verified": true,
+  "calibration_rules_recomputed": 9,
+  "validation_checkpoints_recomputed": 6,
+  "new_training_runs": 6,
+  "test_case_method_predictions_replayed": 3456,
+  "zip_sha256": "949c8aec5c82e204f82361c4b06a8bb228a70c85c9c5a75a5792905c3688b437",
+  "zip_bytes": 3432476,
+  "scope": "Reviewed report and packaging only; no model, cutoff, prediction or measurement changed"
+}

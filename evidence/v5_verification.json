@@ -1,0 +1,12 @@
+{
+  "weight_hashes_verified": 12,
+  "feature_and_policy_hashes_verified": true,
+  "calibration_rules_recomputed": 9,
+  "validation_checkpoints_recomputed": 6,
+  "test_case_method_predictions_replayed": 3456,
+  "all_scores_links_counts_and_summaries_identical": true,
+  "bootstrap_identical": true,
+  "test_used_for_training_or_selection": false,
+  "all_filtered_links_subset_of_frozen_expanded_assignments": true,
+  "development_weights_rules_and_histories_unchanged": true
+}

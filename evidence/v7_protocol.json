@@ -1,0 +1,94 @@
+{
+  "previous": "experiments/scenediff_reproduction/full_reference_f1_confirmation_20261105_v3",
+  "counts": [
+    3,
+    5,
+    7
+  ],
+  "regimes": [
+    "exchangeable",
+    "clustered"
+  ],
+  "backbone": {
+    "repo_commit": "54694f7627fd815f62a5dcc82944ffa6153bbb76",
+    "sha256": "7c1da9a54b3bdb333f5ebc42e404b7f19b1b5bed504877623c9dc87397f41488",
+    "model": "dinov3_vith16plus"
+  },
+  "limits": [
+    "Only five shared procedural asset families and synthetic support masks.",
+    "Local geometry is sparse 2D correspondence evidence, not reconstructed 3D or proof of identity.",
+    "No real-video validation, reconstruction or semantic-generation improvement is measured.",
+    "The official SceneDiff test remains unopened; no published-baseline superiority claim."
+  ],
+  "name": "Hard-example identity verification against original full-model precision",
+  "date": "2026-11-06",
+  "destination": "experiments/scenediff_reproduction/hard_identity_training_20261106_v7",
+  "parent": "experiments/scenediff_reproduction/expanded_match_precision_20261105_v5",
+  "parent_archive_sha256": "949c8aec5c82e204f82361c4b06a8bb228a70c85c9c5a75a5792905c3688b437",
+  "stages": {
+    "development": {
+      "train": {
+        "seed_start": 2026121000,
+        "rooms": 48
+      },
+      "validation": {
+        "seed_start": 2026121100,
+        "rooms": 12
+      },
+      "calibration": {
+        "seed_start": 2026121200,
+        "rooms": 48
+      }
+    },
+    "confirmation": {
+      "test": {
+        "seed_start": 2026122000,
+        "rooms": 96
+      }
+    }
+  },
+  "scope": "Synthetic identity-association module with privileged simulator masks and within-recording grouping, not end-to-end RGB video change detection.",
+  "objective": "Precision above the unchanged original full model while preserving recall and F1 advantages. Preferred success also requires F1 above expanded assignment. Report every same-test comparison, calibration fallback and uncertainty.",
+  "training_data": "Combine only v4 original 48 training layouts with 48 new training layouts (192 material-paired cases); each case has its original plus two label-independent candidate-drop variants (576 augmented cases). Validation combines old 12 layouts with new 12 layouts (48 cases). Fresh calibration has 48 new layouts / 96 cases; fresh test has 96 new layouts / 192 cases. No prior calibration or test is used for fitting.",
+  "model": "Identical v5 65->32 ReLU->16 ReLU pair encoder and linear correctness head, with counterpart-existence branch disabled. Original heads, DINO backbone, generator and input feature definitions remain frozen. Original optional expanded assignment remains the candidate source.",
+  "training": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "steps": 400,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "validation_every": 10,
+    "drop_probability": 0.25,
+    "augmentation_seed": 20261112,
+    "hard_weight": 2.0,
+    "ranking_weight": 0.2,
+    "ranking_margin": 0.5,
+    "rank_negative_limit": 64,
+    "rank_positive_per_state_limit": 32
+  },
+  "hard_examples": "Simulator category and moved/not-moved labels are training supervision only, derived from frozen generator configurations and checked against observed ID slots. Same-category false pairs in the top half of the frozen v5 teacher scores are hard negatives. True moved pairs in the bottom half of teacher scores are hard positives. Increase their assigned-pair BCE weight to two. Additionally rank up to 32 low-scoring moved and 32 low-scoring other true pairs above up to 64 high-scoring same-category false pairs per category using mean softplus(0.5 + negative logit - positive logit), weight 0.2. Ranking uses all training candidate pairs; teacher and categories never select test predictions.",
+  "plain_control": "Same architecture, training data, augmentation, initialization and optimizer; unweighted BCE on assigned candidates only, no ranking. Minimum ordinary validation assigned-pair BCE selects each arm checkpoint, including initialization.",
+  "calibration": "Use only the new calibration split. For the precision operating point, maximize F1 among tied-score thresholds with at least 30 accepts, precision >= original full-model precision + 1 percentage point, recall >= original full-model recall, and F1 >= expanded-assignment F1. If impossible, relax only the F1 requirement to original full-model F1, report the tier. If still impossible, use original full-model outputs and explicitly report fallback, not learning success. Balanced controls maximize F1 with baseline accept-all fallback and no precision floor. This is an empirical policy, not a held-out guarantee. Do not impose historical test precision as an absolute threshold.",
+  "methods": [
+    "reference_full",
+    "expanded_baseline",
+    "previous_pair",
+    "recalibrated_pair",
+    "new_plain",
+    "new_hard",
+    "new_plain_balanced",
+    "new_hard_balanced"
+  ],
+  "primary_method": "new_hard",
+  "decision": "Filter only frozen expanded links for learned operating points; original-reference fallback is the only exception and is reported. No reassignment or fixed keep quota. No category, identity, movement, pose or depth label enters inference features.",
+  "freeze": "Both GPU stages freeze identical protocol, learning and selection code before new data generation. Freeze every checkpoint before new calibration selection, then upload all rules and hashes before loading new test tables for scoring. All seeds and controls are reported. No adaptation from new test outcomes.",
+  "uncertainty": {
+    "draws": 4000,
+    "seed": 20261113,
+    "interpretation": "Paired-layout descriptive percentile intervals conditional on fixed models and policies, preserving material variants and all method/seed pairs; no multiplicity adjustment."
+  },
+  "compute": "At most two single-GPU feature jobs, each capped at 45 minutes: A10G development and L40S confirmation; CPU fitting/evaluation capped at 20 minutes. Use equivalent available GPU if hardware is unavailable and record the deviation."
+}

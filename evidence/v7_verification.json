@@ -1,0 +1,15 @@
+{
+  "weight_hashes_verified": 12,
+  "core_code_hashes_verified": 5,
+  "feature_and_policy_hashes_verified": true,
+  "calibration_rules_recomputed": 15,
+  "validation_checkpoints_and_mining_recomputed": 6,
+  "test_case_method_predictions_replayed": 4608,
+  "all_scores_links_counts_and_summaries_identical": true,
+  "bootstrap_identical": true,
+  "example_inference_identical": true,
+  "test_used_for_training_or_selection": false,
+  "train_validation_calibration_test_seed_sets_disjoint": true,
+  "filtered_links_subset_except_explicit_reference_fallback": true,
+  "weights_rules_and_histories_unchanged_after_test": true
+}

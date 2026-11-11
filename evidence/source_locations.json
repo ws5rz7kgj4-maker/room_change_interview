@@ -1,0 +1,59 @@
+{
+  "retrieved_date": "2026-11-11",
+  "access": "Original experiment repository is private; included summaries are readable without repository access.",
+  "sources": [
+    {
+      "local": "evidence/v5_paired_layout_bootstrap.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/paired_layout_bootstrap.json",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/paired_layout_bootstrap.json"
+    },
+    {
+      "local": "evidence/v5_delivery_manifest.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/delivery_manifest.json",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/delivery_manifest.json"
+    },
+    {
+      "local": "evidence/v5_verification.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/verification.json",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/verification.json"
+    },
+    {
+      "local": "evidence/v5_REVIEWED_FINDINGS.md",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/REVIEWED_FINDINGS.md",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/REVIEWED_FINDINGS.md"
+    },
+    {
+      "local": "evidence/v7_verification.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/verification.json",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/verification.json"
+    },
+    {
+      "local": "evidence/v7_retraining_verification.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/retraining_verification.json",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/retraining_verification.json"
+    },
+    {
+      "local": "evidence/v7_delivery_manifest.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/delivery_manifest.json",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/delivery_manifest.json"
+    },
+    {
+      "local": "evidence/v7_REVIEWED_FINDINGS.md",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/REVIEWED_FINDINGS.md",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/REVIEWED_FINDINGS.md"
+    },
+    {
+      "local": "evidence/v8_FINDINGS.md",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/boosted_identity_verification_20261106_v8/delivery/FINDINGS.md",
+      "source_url": "https://huggingface.co/datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/blob/main/experiments/scenediff_reproduction/boosted_identity_verification_20261106_v8/delivery/FINDINGS.md"
+    },
+    {
+      "local": "evidence/v5_summary.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/expanded_match_precision_20261105_v5/delivery/summary.json"
+    },
+    {
+      "local": "evidence/v7_key_results.json",
+      "source_uri": "hf://datasets/swenlio/room-change-crossroom-smoke-20261025-a72b4c6e/experiments/scenediff_reproduction/hard_identity_training_20261106_v7/delivery/key_results.json"
+    }
+  ]
+}

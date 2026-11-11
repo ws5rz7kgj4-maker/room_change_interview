@@ -1,0 +1,73 @@
+{
+  "previous": "experiments/scenediff_reproduction/full_reference_f1_confirmation_20261105_v3",
+  "counts": [
+    3,
+    5,
+    7
+  ],
+  "regimes": [
+    "exchangeable",
+    "clustered"
+  ],
+  "backbone": {
+    "repo_commit": "54694f7627fd815f62a5dcc82944ffa6153bbb76",
+    "sha256": "7c1da9a54b3bdb333f5ebc42e404b7f19b1b5bed504877623c9dc87397f41488",
+    "model": "dinov3_vith16plus"
+  },
+  "name": "Precision verification of expanded global identity matches",
+  "date": "2026-11-05",
+  "destination": "experiments/scenediff_reproduction/expanded_match_precision_20261105_v5",
+  "parent": "experiments/scenediff_reproduction/expanded_candidate_identity_20261105_v4",
+  "splits": {
+    "test": {
+      "seed_start": 2026119500,
+      "rooms": 96
+    }
+  },
+  "scope": "Synthetic identity-association module with privileged simulator masks and within-recording grouping, not end-to-end RGB video change detection.",
+  "objective": "Improve precision relative to the frozen expanded-original global assignment baseline while retaining useful recall and F1. Same fresh test for every method.",
+  "training_source": "Use only v4 train seeds 2026117500-2026117547 and validation 2026117600-2026117611. Old tests remain development evidence, never training. Reuse calibration 2026113500-2026113523 only to choose rules.",
+  "augmentation": "For each training case keep the original plus two deterministic independent 25%-drop subsets of each side, with at least one candidate per side when originally nonempty. Random selection never uses identity labels. Recompute reference scores and symmetric context after subsetting. Filter and remap supervision separately. Each original case has equal weight across its three versions. Unmatched means no observable counterpart, not physical removal.",
+  "model": "Shared normalized 65->32 ReLU->16 ReLU pair encoder and linear pair-correctness logit. For each object max and mean over opposite-side embeddings plus log(1+opposite count) feed a shared 33->16 ReLU->1 existence head. Pair-only control has the identical network and disables the auxiliary objective and node contribution at inference. Constant training inputs are disabled. Original pair scores, assignments and DINO remain frozen.",
+  "training": {
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "steps": 400,
+    "learning_rate": 0.002,
+    "weight_decay": 0.01,
+    "validation_every": 10,
+    "existence_loss_weight": 0.5,
+    "drop_probability": 0.25,
+    "augmentation_seed": 20261109
+  },
+  "loss": "Equal-layout/material/augmentation binary cross entropy for correctness of frozen-baseline assigned pairs, plus 0.5 symmetric object-existence BCE for the primary model. Validation uses unaugmented cases and the same objective. Select minimum validation loss including step zero. All six fits and nonzero parameter changes are reported.",
+  "methods": [
+    "reference_full",
+    "expanded_baseline",
+    "previous_residual",
+    "score_filter",
+    "pair_verifier",
+    "matchability_verifier"
+  ],
+  "primary_method": "matchability_verifier",
+  "decision": "Only filter links already accepted by frozen expanded-original assignment. No new links, reassignment, quotas or row-order tie breaking. Pair-only score is sigmoid(pair correctness logit). Primary score is sigmoid(pair logit)*sqrt(sigmoid(left existence logit)*sigmoid(right existence logit)). Raw-score filter uses frozen original pair scores. Preserve tied score groups.",
+  "calibration": "For each method and seed sweep all unique calibration accepted-link scores plus accept-all. Primary selection maximizes micro F1 subject to precision>=expanded baseline precision, recall>=90% of expanded baseline recall, F1>=expanded baseline F1 and at least 30 accepted links. Ties prefer higher precision, then more TP, then accept-all. Baseline accept-all is always an explicit fallback. These are empirical calibration criteria, not held-out guarantees. No fixed precision target from earlier experiments.",
+  "freeze": "Freeze protocol, model and policy source before generating fresh data. Train/validation only for weight selection, then calibration only for thresholds. Upload weight and rule hashes before loading new test features for scoring. Test rendering/caching before training is permitted but no test outcome is inspected for adaptation.",
+  "evaluation": "Report all methods, seeds, P/R/F1, mean TP/FP/FN, original expanded true links lost and false links removed, mode/count/material results, correct unmatched decisions, all-replaced FP, and paired-layout uncertainty. Success requires test precision and F1 above expanded baseline; report recall tradeoff and no cherry-picking. Also compare with frozen v4 residual-geometry model and original full model.",
+  "uncertainty": {
+    "draws": 4000,
+    "seed": 20261110,
+    "unit": "96 base layouts, preserving material variants and all method/seed pairs",
+    "interpretation": "Descriptive percentile intervals conditional on frozen weights and policies; no multiplicity adjustment"
+  },
+  "compute": "One L4 GPU feature job <=45m for 192 fresh cases; one CPU training/evaluation job <=20m; short CPU packaging if needed.",
+  "limits": [
+    "Only five shared procedural asset families and synthetic support masks.",
+    "Local geometry is sparse 2D correspondence evidence, not reconstructed 3D or proof of identity.",
+    "No real-video validation, reconstruction or semantic-generation improvement is measured.",
+    "The official SceneDiff test remains unopened; no published-baseline superiority claim."
+  ]
+}

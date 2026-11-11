@@ -1,0 +1,29 @@
+{
+  "zip_sha256": "29cf3900f58b168b90925b261d5fd59722c66774234253f750fa36997dd6be0a",
+  "zip_bytes": 4647312,
+  "source_archive": {
+    "sha256": "3f6eabb054cc19c17cc3ab72b233f6c8fb98ae0d02d908bec3ea2de58c2f93f7",
+    "bytes": 4637365
+  },
+  "source_revision": "cbf42e8a3801b80892e101ce06569bd0f38365a6",
+  "new_training_runs": 6,
+  "reproducibility_reruns": 6,
+  "weights_policies_predictions_unchanged": true,
+  "primary_method": "new_hard",
+  "preferred_point_estimate_goal_met": false,
+  "verification": {
+    "weight_hashes_verified": 12,
+    "core_code_hashes_verified": 5,
+    "feature_and_policy_hashes_verified": true,
+    "calibration_rules_recomputed": 15,
+    "validation_checkpoints_and_mining_recomputed": 6,
+    "test_case_method_predictions_replayed": 4608,
+    "all_scores_links_counts_and_summaries_identical": true,
+    "bootstrap_identical": true,
+    "example_inference_identical": true,
+    "test_used_for_training_or_selection": false,
+    "train_validation_calibration_test_seed_sets_disjoint": true,
+    "filtered_links_subset_except_explicit_reference_fallback": true,
+    "weights_rules_and_histories_unchanged_after_test": true
+  }
+}
